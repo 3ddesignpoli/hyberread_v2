@@ -1,0 +1,60 @@
+{
+  "master_prompt_metadata": {
+    "title": "HyperRead Pro: The Definitive Implementation Specification",
+    "objective": "To build a high-performance, aesthetically pleasing speed-reading web application using the RSVP (Rapid Serial Visual Presentation) methodology with PDF/EPUB support.",
+    "coding_philosophy": "Modular, Type-safe, Minimalist but Rich UI, Performance-focused (no unnecessary re-renders in the reader loop)."
+  },
+  "architecture_details": {
+    "tech_stack": [
+      "React 19 (Hooks focused)",
+      "Tailwind CSS (Utility-first styling)",
+      "Lucide React (Iconography)",
+      "ePub.js (Digital book parsing)",
+      "PDF.js (Text layer extraction from PDFs)",
+      "LocalStorage (Data persistence)"
+    ],
+    "state_management": {
+      "central_store": "App.tsx handles core state (Books[], Stats, Settings).",
+      "persistence_strategy": "JSON serialization to LocalStorage on every state update. Handle storage limits gracefully."
+    }
+  },
+  "module_specifications": {
+    "rsvp_engine": {
+      "display_logic": "Render one word at a time. The 'Optimal Recognition Point' (ORP) is the letter at roughly 35-40% of the word's length. This letter MUST be colored red and center-aligned globally.",
+      "timer_loop": "Use a robust setInterval. Calculation: Delay = 60,000 / WPM. Ensure the interval is cleared immediately on pause or unmount to prevent memory leaks.",
+      "ui_requirements": "Fullscreen experience. Use monospaced fonts for the reader to ensure the ORP doesn't 'jump' horizontally between words. Visual cues (crosshair lines) must be present."
+    },
+    "file_parsing_service": {
+      "epub": "Iterate through 'spineItems', load each chapter, and extract 'textContent' from the document body.",
+      "pdf": "Use pdfjsLib. Wait for getDocument().promise. Iterate through pages (1 to numPages). For each page, call getTextContent() and map items to their 'str' property. Join with spaces.",
+      "text_normalization": "Crucial step. Remove multiple whitespace characters, normalize non-standard characters, and split into a clean string array. Filter out empty strings."
+    },
+    "gamification_logic": {
+      "xp": "10 words read = 1 XP point.",
+      "leveling": "Level = floor(total_xp / 500) + 1.",
+      "engagement": "Store 'lastReadDate'. If today's date is different from lastReadDate, update streak logic."
+    }
+  },
+  "ui_ux_standards": {
+    "color_palette": {
+      "primary": "#2F7AE5 (Blue)",
+      "accent": "#4CCD9A (Green)",
+      "danger": "#EF4444 (Red for ORP)",
+      "bg": "#F5F5F7 (Soft Gray)"
+    },
+    "animations": {
+      "page_transitions": "Slide-up or Fade for screens.",
+      "reader_controls": "Scale(0.95) on active click.",
+      "training_ball": "700ms ease-in-out transition for smooth saccade movement."
+    }
+  },
+  "step_by_step_execution_guide": {
+    "phase_1_setup": "Define types.ts and constants.ts. Initialize basic layout in App.tsx.",
+    "phase_2_services": "Implement epubService.ts. Test PDF and EPUB parsing with large files (1MB+).",
+    "phase_3_library": "Create Library.tsx. Implement file input, paste logic, and book cards with progress bars.",
+    "phase_4_reader_core": "Develop Reader.tsx. Focus on the RSVP loop. Implement the ORP highlighting logic. Add settings overlay for WPM and Font Size.",
+    "phase_5_dashboards": "Build Home.tsx with progress bars and Stats overview.",
+    "phase_6_training": "Build Training.tsx eye exercise using a bouncing ball logic.",
+    "phase_7_polishing": "Ensure responsive design. Add 'splash screen' for branding. Finalize LocalStorage sync."
+  }
+}

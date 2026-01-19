@@ -1,0 +1,192 @@
+
+import { LanguageCode, Lesson } from './types';
+
+export const SUPPORTED_LANGUAGES: { code: LanguageCode; label: string; dir: 'ltr' | 'rtl' }[] = [
+  { code: 'en', label: 'English', dir: 'ltr' },
+  { code: 'tr', label: 'Türkçe', dir: 'ltr' },
+  { code: 'de', label: 'Deutsch', dir: 'ltr' },
+  { code: 'es', label: 'Español', dir: 'ltr' },
+  { code: 'pt', label: 'Português', dir: 'ltr' },
+  { code: 'fr', label: 'Français', dir: 'ltr' },
+  { code: 'ru', label: 'Русский', dir: 'ltr' },
+  { code: 'ja', label: '日本語', dir: 'ltr' },
+  { code: 'zh', label: '中文', dir: 'ltr' },
+  { code: 'ar', label: 'العربية', dir: 'rtl' },
+];
+
+const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> = {
+  en: {
+    welcome_back: "Welcome back",
+    ready_to_read: "Ready to read?",
+    level: "Level",
+    continue_reading: "CONTINUE READING",
+    resume: "Resume",
+    start_book: "Start a Book",
+    select_library: "Select from library",
+    current_wpm: "Current WPM",
+    minutes_read: "Minutes Read",
+    eye_training: "Eye Training",
+    boost_focus: "Boost your focus & speed",
+    library: "Library",
+    books_available: "books available",
+    paste_text: "Paste Text",
+    browse_free: "Browse Free Books",
+    search_gutenberg: "Search Project Gutenberg...",
+    tap_upload: "Tap to upload PDF, EPUB or TXT",
+    analyzing: "Analyzing Content...",
+    paste_title: "Paste Content",
+    book_title_placeholder: "Book Title",
+    paste_placeholder: "Paste your text here...",
+    cancel: "Cancel",
+    confirm: "Confirm",
+    start_reading: "Start Reading",
+    reading: "READING",
+    tap_play: "Tap to play",
+    tap_pause: "Tap to pause",
+    word: "Word",
+    page: "Page",
+    restart_chapter: "Restart Chapter",
+    reading_settings: "Reading Settings",
+    speed: "Speed (WPM)",
+    font_size: "Font Size",
+    training_center: "Training Center",
+    course: "Course",
+    eye_gym: "Eye Gym",
+    master_speed: "Master Speed Reading",
+    course_desc: "You are currently in 'Page View'. Click any word to mark your place, or click the KYAC Hyperread icon to start speed reading from that spot.",
+    core_lessons: "CORE LESSONS",
+    start_lesson: "START LESSON",
+    focus_exercise: "Focus Exercise",
+    focus_desc: "Follow the dot with your eyes without moving your head.",
+    start_session: "Start 30s Session",
+    complete: "Complete!",
+    great_job: "Great job keeping focus.",
+    again: "Again",
+    time_remaining: "TIME REMAINING",
+    nav_home: "Home",
+    nav_read: "Read",
+    nav_library: "Library",
+    nav_stats: "Stats",
+    stats_dashboard: "Statistics Dashboard",
+    total_words: "Total Words",
+    current_level: "Current Level",
+    time_spent: "Time Spent Reading",
+    location_saved: "Location Saved",
+    move_marker_confirm: "Are you sure you want to move your saved reading location?",
+    set_marker: "Set Marker Here",
+    downloading: "Downloading...",
+    add_to_lib: "Add to Library",
+    no_results: "No results found",
+    search_error: "Could not fetch books",
+    try_proxy: "Direct download failed. Please visit Project Gutenberg to download.",
+    words_left: "Words to Level Up",
+    next_goal: "Next Goal",
+    your_journey: "Your Journey",
+    track_progress: "Track your progress",
+    words_required: "words total"
+  },
+  tr: {
+    welcome_back: "Tekrar hoşgeldiniz",
+    ready_to_read: "Okumaya hazır mısın?",
+    level: "Seviye",
+    continue_reading: "OKUMAYA DEVAM ET",
+    resume: "Devam Et",
+    start_book: "Kitap Başlat",
+    select_library: "Kütüphaneden seç",
+    current_wpm: "Mevcut Hız (KDS)",
+    minutes_read: "Okunan Dakika",
+    eye_training: "Göz Eğitimi",
+    boost_focus: "Odak ve hızını artır",
+    library: "Kütüphane",
+    books_available: "kitap mevcut",
+    paste_text: "Metin Yapıştır",
+    browse_free: "Ücretsiz Kitap Bul",
+    search_gutenberg: "Project Gutenberg'de Ara...",
+    tap_upload: "PDF, EPUB veya TXT yüklemek için dokun",
+    analyzing: "İçerik Analiz Ediliyor...",
+    paste_title: "İçerik Yapıştır",
+    book_title_placeholder: "Kitap Başlığı",
+    paste_placeholder: "Metni buraya yapıştır...",
+    cancel: "İptal",
+    confirm: "Onayla",
+    start_reading: "Okumaya Başla",
+    reading: "OKUNUYOR",
+    tap_play: "Oynatmak için dokun",
+    tap_pause: "Durdurmak için dokun",
+    word: "Kelime",
+    page: "Sayfa",
+    restart_chapter: "Bölümü Yeniden Başlat",
+    reading_settings: "Okuma Ayarları",
+    speed: "Hız (KDS)",
+    font_size: "Yazı Boyutu",
+    training_center: "Eğitim Merkezi",
+    course: "Dersler",
+    eye_gym: "Göz Sporu",
+    master_speed: "Hızlı Okuma Uzmanlığı",
+    course_desc: "Şu an 'Sayfa Görünümü'ndesiniz. Kaldığınız yeri işaretlemek için herhangi bir kelimeye dokunun veya oradan hızlı okumaya başlamak için KYAC Hyperread ikonuna basın.",
+    core_lessons: "TEMEL DERSLER",
+    start_lesson: "DERSE BAŞLA",
+    focus_exercise: "Odak Egzersizi",
+    focus_desc: "Başını hareket ettirmeden gözlerinle noktayı takip et.",
+    start_session: "30sn Başlat",
+    complete: "Tamamlandı!",
+    great_job: "Harika odaklandın.",
+    again: "Tekrar",
+    time_remaining: "KALAN SÜRE",
+    nav_home: "Ana Sayfa",
+    nav_read: "Oku",
+    nav_library: "Kütüphane",
+    nav_stats: "İstatistik",
+    stats_dashboard: "İstatistik Paneli",
+    total_words: "Toplam Kelime",
+    current_level: "Mevcut Seviye",
+    time_spent: "Okunan Süre",
+    location_saved: "Konum Kaydedildi",
+    move_marker_confirm: "Okuma yerinizi değiştirmek istediğinizden emin misiniz?",
+    set_marker: "İşareti Buraya Koy",
+    downloading: "İndiriliyor...",
+    add_to_lib: "Kütüphaneye Ekle",
+    no_results: "Sonuç bulunamadı",
+    search_error: "Kitaplar getirilemedi",
+    try_proxy: "Doğrudan indirme başarısız. Lütfen Project Gutenberg sitesini ziyaret edin.",
+    words_left: "Kelime Kaldı",
+    next_goal: "Sonraki Hedef",
+    your_journey: "Yolculuğun",
+    track_progress: "Gelişimini takip et",
+    words_required: "kelime toplam"
+  }
+};
+
+const getLessonContent = (lang: LanguageCode) => {
+  const contents: Partial<Record<LanguageCode, any[]>> = {
+    en: [
+      { t: "Lesson 1: Introduction to RSVP", d: "Learn how Rapid Serial Visual Presentation eliminates eye movement.", c: "Welcome to your first speed reading lesson. The technique you are using right now is called RSVP, or Rapid Serial Visual Presentation. Normally, your eyes waste time moving from word to word. This takes up about 30% of your reading time. By flashing words in the same spot, we eliminate this movement. Focus on the red letter in the center. Let the words come to you. Do not move your eyes. Relax and absorb the meaning." },
+      { t: "Lesson 2: Silencing the Inner Voice", d: "How to stop subvocalization to double your speed.", c: "Most people pronounce words in their head while reading. This is called subvocalization. It limits your reading speed to your speaking speed, which is usually around 150 words per minute. To read faster, you must break this habit. You can think much faster than you can speak. In this exercise, the words will appear faster than you can say them. Don't try to pronounce them. Just look at the word and understand the meaning instantly." },
+      { t: "Lesson 3: Endurance Training", d: "Maintain focus for longer periods at high speeds.", c: "Speed reading requires focus. Like a muscle, your attention span grows with practice. At high speeds, if you look away for a second, you miss a sentence. This exercise is slightly longer. Your goal is to keep your eyes locked on the center point. Do not blink excessively. Keep your breathing steady. Flow with the stream of information." }
+    ],
+    tr: [
+      { t: "Ders 1: RSVP'ye Giriş", d: "Hızlı Seri Görsel Sunum ile göz hareketlerini nasıl ortadan kaldıracağınızı öğrenin.", c: "İlk hızlı okuma dersinize hoş geldiniz. Şu anda kullandığınız tekniğin adı RSVP, yani Hızlı Seri Görsel Sunum. Normalde gözleriniz kelimeden kelimeye geçerken zaman kaybeder. Bu, okuma sürenizin yaklaşık %30'unu alır. Kelimeleri aynı noktada göstererek bu hareketi ortadan kaldırıyoruz. Ortadaki kırmızı harfe odaklanın. Kelimelerin size gelmesine izin verin. Gözlerinizi hareket ettirmeyin. Rahatlayın ve anlamı özümseyin." },
+      { t: "Ders 2: İç Sesi Susturmak", d: "Hızınızı ikiye katlamak için iç seslendirmeyi nasıl durdurursunuz.", c: "Çoğu insan okurken kelimeleri kafasında telaffuz eder. Buna iç seslendirme denir. Bu, okuma hızınızı konuşma hızınızla sınırlar, bu da genellikle dakikada yaklaşık 150 kelimedir. Daha hızlı okumak için bu alışkanlığı kırmalısınız. Konuşabildiğinizden çok daha hızlı düşünebilirsiniz. Bu egzersizde kelimeler söyleyebileceğinizden daha hızlı görünecek. Onları telaffuz etmeye çalışmayın. Sadece kelimeye bakın ve anlamı anında anlayın." },
+      { t: "Ders 3: Dayanıklılık Eğitimi", d: "Yüksek hızlarda daha uzun süre odaklanmayı koruyun.", c: "Hızlı okuma odaklanma gerektirir. Bir kas gibi, dikkat süreniz pratikle gelişir. Yüksek hızlarda, bir saniye başka yere bakarsanız bir cümleyi kaçırırsınız. Bu egzersiz biraz daha uzundur. Amacınız gözlerinizi merkez noktada kilitli tutmaktır. Aşırı göz kırpmayın. Nefesinizi sabit tutun. Bilgi akışıyla birlikte ilerleyin." }
+    ]
+  };
+
+  const selectedContent = contents[lang] || contents['en'] || [];
+
+  return selectedContent.map((l: any, index: number) => ({
+    id: `lesson-${index + 1}`,
+    title: l.t,
+    description: l.d,
+    difficulty: index === 0 ? 'Beginner' : index === 1 ? 'Intermediate' : 'Advanced',
+    defaultWpm: index === 0 ? 200 : index === 1 ? 350 : 450,
+    content: l.c
+  } as Lesson));
+};
+
+export const getTranslation = (lang: LanguageCode, key: string): string => {
+  return UI_STRINGS[lang]?.[key] || UI_STRINGS['en']?.[key] || key;
+};
+
+export const getLocalizedLessons = (lang: LanguageCode): Lesson[] => {
+  return getLessonContent(lang);
+};
