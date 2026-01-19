@@ -7,7 +7,12 @@ Uygulamayı telefonunuzda kullanmak için internete yüklemeniz (Deploy) gerekme
 En hızlı ve profesyonel yöntem budur.
 
 1. **GitHub'a Yükleyin**:
-   - Bu proje klasörünü GitHub hesabınızda yeni bir depo (repository) olarak oluşturun ve yükleyin.
+   - GitHub'da yeni bir repository oluşturun.
+   - Oluşturduktan sonra ekranın ortasındaki **"uploading an existing file"** linkine tıklayın.
+   - **ÖNEMLİ:** Bilgisayarınızdaki `hyperread-pro` klasörünün içindeki **TÜM DOSYA VE KLASÖRLERİ** seçin.
+   - Seçtiklerinizi **SÜRÜKLE VE BIRAK (DRAG & DROP)** yöntemiyle tarayıcı penceresinin içine atın.
+   - *Not: "Choose your files" butonuna basarsanız klasörleri almayabilir. Sürükleyip bırakmak şarttır.*
+   - Dosyaların yüklenmesi bitince aşağıdan "Commit changes" butonuna basın.
 
 2. **Vercel'e Bağlayın**:
    - [Vercel.com](https://vercel.com) adresine gidin ve (GitHub ile) üye olun.

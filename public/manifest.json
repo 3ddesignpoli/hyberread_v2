@@ -1,0 +1,17 @@
+{
+    "name": "KYAC Hyperread Pro",
+    "short_name": "KYAC",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F5F5F7",
+    "theme_color": "#2F7AE5",
+    "orientation": "any",
+    "description": "Professional Speed Reading Coach",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
