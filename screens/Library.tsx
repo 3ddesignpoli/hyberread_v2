@@ -42,6 +42,10 @@ const LibraryScreen: React.FC<LibraryProps> = ({ books, onSelectBook, onAddBook,
       else if (fileName.endsWith('.txt')) { bookData = await parseTxtFile(file); type = 'txt'; }
       else { throw new Error('Unsupported format'); }
 
+      if (!bookData.content || bookData.content.length < 10) {
+        throw new Error('Book content is empty or too short');
+      }
+
       onAddBook({
         id: Date.now().toString(),
         title: bookData.title,
@@ -55,7 +59,8 @@ const LibraryScreen: React.FC<LibraryProps> = ({ books, onSelectBook, onAddBook,
         type: type
       });
     } catch (error: any) {
-      setErrorToast(error.message);
+      console.error(error);
+      setErrorToast(error.message || 'Error processing file');
       setTimeout(() => setErrorToast(null), 3000);
     } finally {
       setIsProcessing(false);
