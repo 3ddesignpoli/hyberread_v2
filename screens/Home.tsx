@@ -41,8 +41,8 @@ const HomeScreen: React.FC<HomeProps> = ({ stats, recentBook, onNavigate, onCont
             >
                 <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
 
-                {/* Top Bar */}
-                <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-30">
+                {/* Top Bar - Relative Flow */}
+                <div className="relative flex justify-between items-start z-30 mb-8">
                     <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/10">
                         <span className="text-blue-100 font-bold text-[10px] uppercase tracking-widest block opacity-70">{t('current_level')}</span>
                         <span className="text-white font-black text-xl">{stats.level}</span>
